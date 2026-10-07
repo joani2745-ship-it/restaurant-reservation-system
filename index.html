@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Table Reservation System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🍽️ TableReserve</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="my-reservations.html">My Reservations</a></li>
+                <li><a href="admin.html">Admin</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to TableReserve</h1>
+            <p>Reserve your table online and enjoy seamless dining experience</p>
+            <button class="btn btn-primary" onclick="scrollToReservation()">Book a Table Now</button>
+        </div>
+    </section>
+
+    <!-- Restaurant Info -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🏆 Quality Dining</h3>
+                    <p>Experience authentic cuisine prepared by our expert chefs</p>
+                </div>
+                <div class="info-card">
+                    <h3>⏱️ Quick Reservation</h3>
+                    <p>Book your table in just a few clicks online</p>
+                </div>
+                <div class="info-card">
+                    <h3>💳 Easy Payment</h3>
+                    <p>Secure payment system for both reservations and meals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Reservation Section -->
+    <section class="reservation-section" id="reservation-section">
+        <div class="container">
+            <h2>Make a Reservation</h2>
+            
+            <div class="reservation-form">
+                <div class="form-group">
+                    <label for="res-date">Reservation Date:</label>
+                    <input type="date" id="res-date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="res-time">Reservation Time:</label>
+                    <select id="res-time" required>
+                        <option value="">Select Time</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="11:30">11:30 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="12:30">12:30 PM</option>
+                        <option value="13:00">1:00 PM</option>
+                        <option value="13:30">1:30 PM</option>
+                        <option value="18:00">6:00 PM</option>
+                        <option value="18:30">6:30 PM</option>
+                        <option value="19:00">7:00 PM</option>
+                        <option value="19:30">7:30 PM</option>
+                        <option value="20:00">8:00 PM</option>
+                        <option value="20:30">8:30 PM</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="num-guests">Number of Guests:</label>
+                    <input type="number" id="num-guests" min="1" max="20" value="2" required>
+                </div>
+
+                <button class="btn btn-primary" onclick="checkAvailability()">Check Availability</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table Selection Modal -->
+    <div id="availability-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('availability-modal')">&times;</span>
+            <h2>Available Tables</h2>
+            <div id="table-options" class="table-options"></div>
+            <p id="no-tables" style="text-align: center; color: #666;">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Restaurant Table Reservation System. All rights reserved.</p>
+            <p>For Web Systems and Technologies Project</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
